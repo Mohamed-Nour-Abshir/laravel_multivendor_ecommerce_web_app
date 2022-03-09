@@ -1,0 +1,441 @@
+                                     LECTURE 0 
+-------------------------------------------------------------------------
+Laravel is one of the most popular PHP framework to develop websites. And recently, the Laravel 9 version has been launched that we will use for our Multi Vendor / Seller E-commerce Website.
+
+Multi-vendor Portal or Website is a platform for third-party sellers to sell in one place. In simple terms, it is a big store that contains various small shops that are run by individual vendors.
+
+E-Commerce websites like Amazon or eBay are good examples of multivendor websites where multiple vendors are allowed to register on a single platform with the same shopping cart and sell their products.
+
+We are going to create such a kind of Multivendor website that can handle both B2B and B2C.
+
+Multi-Vendor E-commerce Website is like a mall that contains many small shops and the responsibility of running each shop lies with the different individual shop owners. These small shops here in multi-vendor e-commerce websites are the vendor’s shops and the website is responsible for the order management, shipping management, and collecting payments. 
+
+Steps of Laravel 9 Multi-Vendor E-commerce Website:-
+1) The vendors register with the website through paid or even free registration.
+2) Once the vendor registers and uploads his products, the customers can start purchasing from them.
+3) Owner of the multi-vendor website can charge a small fee from the vendors on each transaction.
+4) Most of the payments are transferred to the website owner, and from there to the vendor chosen.
+5) Product delivery is handled by the vendor itself or even the admin.
+6) Communication on faulty products can be conveyed to the vendor or even the store admin, which the seller handles.
+
+Admin Features of Laravel 9 Multi-Vendor E-commerce Website:-
+1) Admin can easily monitor and manage their vendors.
+2) Admin can charge a commission from the vendors.
+3) Admin can add a separate registration section for the vendors. So, that the vendors can register themselves easily on the website.
+4) Admin can track the overall transactions of the vendors.
+5) Admin can approve or disapprove the products added by the vendors.
+6) Admin can also approve or disapprove the category request made by the vendors.
+
+Vendor Features of Laravel 9 Multi-Vendor E-commerce Website:-
+1) Vendors can get an interactive seller dashboard.
+2) Vendors can track their earnings easily.
+3) Vendors can link their social accounts to their website profiles.
+4) Vendors can add coupons to their stores to give exciting offers to their customers.
+5) Vendors can request a category request to add more products in it.
+
+
+                                     LECTURE 1
+-------------------------------------------------------------------------
+
+In Part-1 of the Laravel Multi Vendor E-commerce Website, we will install Laravel 9 for our project. For installing Laravel 9, first we need to install Xampp and the Composer.
+
+1) Install Laravel 9.0 (if not installed yet):- 
+Follow the below steps to install Laravel 9:-
+
+1.1) Install Xampp or any other Apache Server
+You can install the latest Xampp version.
+
+1.2) Install Composer:-
+Install Composer latest Version
+
+
+1.3) Install Laravel 9:-
+Finally, install Laravel 9 via Composer Command:-
+composer create-project --prefer-dist laravel/laravel project_name "9.*"
+
+
+                                     LECTURE 2
+-------------------------------------------------------------------------
+
+In this part-2 of the Laravel 9 Multi Vendor E-commerce Website, we will install Laravel Breeze for Authentication to set up default login/register.
+
+Install Authentication / Scaffolding for Laravel 9
+After installing the Laravel 9.0 successfully in the last video, now we require to install Authentication / Scaffolding via Laravel Breeze which helps to make the default login/register panel in our new Laravel 9 website.
+
+Scaffolding refers to a quickly set up a skeleton for the website that covers the Authentication of the website.
+
+Follow the below steps to create a default login/register authentication process for our Laravel 9 website:-
+
+1) Create Database:-  
+We will first create a database with the name 'multi_vendor_ecommerce'.
+
+2) Update .env file :-
+Now we will update .env file to configure our database connection.
+
+3) Create Users table:- 
+Now we will create users and other default tables in our database by running the below command:-
+php artisan migrate
+
+4) Create default Login/Register :- 
+For default Login/Register, Install Laravel Breeze package with the below commands:-
+composer require laravel/breeze --dev
+php artisan breeze:install
+
+Check more details of Laravel Breeze package at https://laravel.com/docs/9.x/starter-...
+
+Default Login Register must work now without any design and for that we will install node.js (npm).
+
+5) Install node.js :-
+Now install node.js for npm as per your OS 
+https://nodejs.org/en/download/
+
+6) Update Login/Register Design/CSS :- 
+Run below commands to create styling for login/register pages:- 
+
+npm install
+npm run dev
+
+Run "php artisan serve" command and check; we have better UI for login/register pages.
+
+
+                                     LECTURE 3
+-------------------------------------------------------------------------
+
+In Part-3 of Laravel 9, we will download one of the best responsive admin template i.e. Skydash and start merging it into our Laravel 9 Multi Vendor E-commerce website.
+
+1) Download Template:-
+Download Admin template from below Github link:-
+https://github.com/BootstrapDash/skyd...
+
+2) Merge Template:- 
+Now we will start merging Admin template files into our Laravel website. 
+
+- Create admins folder under /public/
+We will copy CSS, JS, Images, Fonts and other files from the Admin template to our Laravel file structure. We will create an admin folder under /public/ where we will create further folders and copy all admin files.
+
+2.1) Copy CSS Files:- 
+- Create css folder under /public/admin/
+We will create css folder under /public/admin/ and copy all CSS files from the template/css/ folder of the Admin template into it.
+
+2.2) Copy JS Files:- 
+- Create js folder under /public/admin/
+We will create js folder under /public/admin/ and copy all JS files from template/js/ folder of the Admin template into it.
+
+2.3) Copy Images:- 
+- Create images folder under /public/admin/
+We will create an images folder under /public/admin/ and copy all Images files from the template/images/ folder of the Admin template into it.
+
+2.4) Vendors Folder:- 
+- Create vendors folder under /public/admin/
+We will create a vendors folder under /public/admin/ and copy all Vendors files from the template/vendors/ folder of the Admin template into it.
+
+3) Create admin/layout folders and layout files :-
+- Create admin folder under /resources/views/
+- Create layout folder under /resources/views/admin/
+- Create layout.blade.php file under /resources/views/admin/layout/
+- Create header.blade.php file under /resources/views/admin/layout/
+- Create footer.blade.php file under /resources/views/admin/layout/
+- Create sidebar.blade.php file under /resources/views/admin/layout/
+- Create dashboard.blade.php file under /resources/views/admin/
+
+4) Create AdminController.php file:-
+Now create Admin folder under /app/Http/Controllers/ and then create AdminController.php file under Admin folder by running below artisan command:-
+php artisan make:controller Admin/AdminController
+
+We will keep all Admin Controllers separate from Front Controllers which will help us to do clear coding.
+
+5) Create Route:-
+We will create a separate group in the web.php file for admin routes so that we can keep them separately with namespace Admin and prefix admin.
+
+We have added a dashboard route without any authentication for now but in upcoming videos, we will add Auth Guard for admin routes.
+
+6) Create function:-
+We will create a dashboard function in AdminController and will return to the dashboard.blade.php file.
+
+7) Update dashboard.blade.php file:-
+Now we will update the dashboard.blade.php and copy content from the index.html file from skydash template folder.
+
+You can see the view of the dashboard page by opening the below link:-
+http://127.0.0.1:8000/admin/dashboard
+
+
+                                     LECTURE 4
+-------------------------------------------------------------------------
+
+In Part-4 of Laravel 9, we will further update layout files and add content in the header, footer and sidebar files for our Laravel 9 Multi-Vendor E-commerce website.
+
+1) Update layout files:-
+We will move content from the dashboard.blade.php file to the layout.blade.php file and further move some of the sections of code to the below files as shown in the video.  
+
+header.blade.php file
+footer.blade.php file
+sidebar.blade.php file
+
+We will add content into the above three files and will also update the layout.blade.php file as shown in the video.  
+
+In the header.blade.php file, add Navbar related code.
+
+In the footer.blade.php file, add footer related code.
+
+We are going to include a footer in content pages like the dashboard.blade.php file
+
+In the sidebar.blade.php file, add sidebar related code.
+
+- Create dashboard.blade.php under /resources/views/admin/
+For middle content, we will add syntax and will create a dashboard.blade.php file under the admin folder where we will add middle content code.
+
+Now we will update layout files; header, footer and sidebar to correct css/js/images paths. We will also create a route, function for the admin dashboard page.
+
+Now, we will further update the layout.blade.php file to add Laravel asset/url to css/js/images and vendor files paths.
+
+2) Update header.blade.php file:-
+Now we will update the header.blade.php file to add Laravel asset to images paths.
+
+3) Update sidebar.blade.php file:-
+Now we will update the sidebar.blade.php file to add Laravel asset to images paths.
+
+4) Update dashboard.blade.php file:-
+Now we will update the dashboard.blade.php file to add Laravel asset to images paths and remove unwanted content.
+
+You can see the view of the dashboard page by opening the below link:-
+http://127.0.0.1:8000/admin/dashboard
+
+
+
+                                     LECTURE 5
+-------------------------------------------------------------------------
+
+In Part-5 of the Laravel 9, we will create an admin login page. We will copy the design/content of the admin login from the Skydash admin template and merge it into our Laravel 9 Multi Vendor E-commerce Admin Panel.
+
+1) Create Route:- 
+First of all, create GET/POST route for admin login in Admin route group like below:-
+Route::match(['get','post'],'login','AdminController@login');
+
+2) Create login Function:-
+Now create a login function in AdminController that will return to the login.blade.php file that we will create in the next step.
+
+3) Create login.blade.php file:-
+Now we will create login.blade.php file in the /resources/views/admin/ folder in which we will add content from the login.html page from the Skydash admin template from the path /template/pages/samples folder. We will not add admin design to it as admin design layout with header, footer and sidebar are for the internal pages of admin.
+
+We will also correct paths in the login.blade.php file. 
+
+You can see in the video; our admin login page is ready.
+
+4) Update Routes :-
+We will create a separate group in the web.php file for admin routes so that we can keep them separately with namespace Admin and prefix admin.
+
+We have added a dashboard route without any authentication for now but in upcoming videos, we will add Auth Guard for admin routes.
+
+
+                                     LECTURE 6
+-------------------------------------------------------------------------
+
+In Part-6 of the Laravel 9, we will create vendors and admins tables and models for our Laravel 9 Multi Vendor E-commerce Website. 
+
+We will create admins and models tables with Migration.
+
+1) Create vendors table
+First of all, we will create a vendors table with Migration having below columns:-
+id, name, address, city, state, country, pincode, mobile, email, status
+
+So, we will run the below artisan command to create a migration file with name create_vendors_table for creating vendors table:-
+php artisan make:migration create_vendors_table
+
+Open the create_vendors_table migration file and add all required columns mentioned earlier.
+
+Now we will run the below artisan command to create a vendors table with required columns:- 
+php artisan migrate
+
+2) Create Vendor model
+Now we will create Vendor model with the below artisan command:-
+php artisan make:model Vendor
+
+3) Create admins table
+We will now create admins table with Migration.
+We will create a migration file with the name create_admins_table for creating admins table with the below columns:-
+id, name, type, vendor_id, mobile, email, password, image, status
+
+So, we will run the below artisan command to create a migration file for admins:-
+php artisan make:migration create_admins_table
+
+Open the create_admins_table migration file and add all required columns mentioned earlier.
+
+Now we will run the below artisan command to create an admins table with required columns:- 
+php artisan migrate
+
+4) Create Admin model:-
+Now we will create an Admin model with the below artisan command:-
+php artisan make:model Admin
+
+
+                                     LECTURE 7
+-------------------------------------------------------------------------
+
+In Part-7 of the Laravel 9 Tutorial, we will start working on Multi Authentication for our Laravel 9 Multi Vendor E-commerce Website. We will configure Guards for Admins, Sub Admins and Vendors and default Web Auth for Users.
+
+We will also prevent the admin routes including the dashboard from unauthorized access. No one can able to access the admin dashboard and other admin modules without login into the admin panel.  We will use Guards to protect the admin routes including the dashboard route.
+
+We will follow the below steps to set Guards for Admin Panel / Admins.
+
+1) Update Admin model:-
+We will update the Admin model to set the protected guard variable for admin and set other variables as shown in the video. We will also extend the Admin class to Authenticatable.
+
+2) Update auth.php file:-
+We will update the auth.php file located at config\auth.php to set guards for admin to assign session in driver and admins in provider as shown in the video.
+
+We will also set providers for admins to assign eloquent in driver and Admin class in the model.
+
+3) Create Admin Middleware:-
+Now we will create an Admin Middleware file by running the below command:-
+php artisan make:middleware Admin
+
+4) Update kernel.php file:-
+Now we will update the kernel.php file located at app\http\ folder to register Admin middleware as global as shown in the video.
+
+5) Update Admin Middleware
+Add Auth:guard check in Admin Middleware to protect the admin routes. This check will be false for now as we have not registered the admin guard yet. 
+
+Also, include use Auth; at top of Admin Middleware file.
+
+6) Update web.php file:-
+Add admin middleware group and move admin dashboard route under it to protect it from unauthorised access.
+
+Now no one can access the admin dashboard without login into the admin panel.  We have used Guards to protect the admin routes including the dashboard route.
+
+
+                                     LECTURE 8
+-------------------------------------------------------------------------
+
+In Part-8 of the Laravel 9 Tutorial, we will work on admin login and logout functionality. We will register the admin guard every time when an admin logs in and forget it every time when the admin logs out from the admin panel. But first of all, we are required to insert one admin record with the Seeder.
+
+Seeding helps us to insert data into the table from the file and will also help us for future projects to automatically create tables with migration and data with seeding. 
+
+We will create a Seeding for admins table to automatically insert admin data from a file.
+
+1) Writing Seeder / Create AdminsTableSeeder file :-
+First of all, we will generate a seeder and create an AdminsTableSeeder file where we will add record for the admins table.
+
+Run below artisan command to generate Seeder and create AdminsTableSeeder file:-
+php artisan make:seeder AdminsTableSeeder
+
+The above command will create AdminsTableSeeder.php file at \database\seeders\
+
+Now open the AdminsTableSeeder file and add a record for admin.
+
+We will generate a hash password for admin by using the Hash::make function as shown in the video.
+
+2) Update DatabaseSeeder.php file:-
+Now update DatabaseSeeder.php file located at database/seeders/ to add AdminsTableSeeder class as shown in video.
+
+3) Running Seeder / Run below command:-
+Once you have written your seeder, you may need to regenerate Composer's autoloader using the dump-autoload command:
+composer dump-autoload
+
+4) Run below command:-
+Now run the last command that will finally insert admin record into admins table that we can use for admin login.
+php artisan db:seed
+
+
+                                     LECTURE 9
+-------------------------------------------------------------------------
+
+In Part-9 of the Laravel 9 to create a Multi Vendor E-commerce Website in Laravel, we will work on admin login and logout functionality. We will register the admin guard every time when an admin logs in and forget it every time when the admin logs out from the admin panel. 
+
+1) Update login.blade.php file:-
+First of all, we will update the login.blade.php file to update the Login form. We will set its action, CSRF token, the username (email) and password.
+
+2) Update login function :-
+Now we will update the login function at AdminController. We will add the condition for posted data and use the guard for admin login as shown in the video.
+
+You can try login in with username admin@admin.com and password 123456 that we have set in the last video with Seeding.
+
+Once logged in, we will redirect the user to the Dashboard page and if the username or password is incorrect then we can redirect back the user and flash the error message on the admin login page.
+
+3) Update header.blade.php file:-
+Remove all unwanted code and add the "Logout" link for the user at the top right side of the header as shown in the video.
+
+4) Create Route:-
+Now we will create a GET route for Admin Logout in the web.php file like below:-
+
+// Admin Logout
+Route::get('logout','AdminController@logout'); 
+
+5) Create logout function:-
+Now we will create a logout function in AdminController in which we will unset the admin guard as shown in the video. 
+
+6) Update login.blade.php file:-
+Update the login.blade.php file to show the error message if the admin user or password is incorrect.
+
+We can get the "error message alert bootstrap" script from the below website:-
+https://getbootstrap.com/docs/4.0/com...
+
+Now we are able to login into the admin panel with Guard and log out as well. If the username or password is incorrect then we are displaying an error message on the admin login page.
+
+
+                                     LECTURE 10
+-------------------------------------------------------------------------
+
+In Part-10 of the Laravel 9 to create a Multi-Vendor E-commerce Website in Laravel, we will add Laravel validations for the admin login form.
+
+We will follow below Laravel 9 link for integrating Laravel validations for admin login:-
+https://laravel.com/docs/9.x/validation
+
+1) Update login function :-
+Update login function located at AdminController and write validator code for email and password as shown in the video.
+
+Take help from https://laravel.com/docs/9.x/validati... for writing validation logic.
+
+2) Update login.blade.php file:-
+Now update the login.blade.php file to display the error if validation fails for email and password. You can check this on the Laravel website under the "Displaying The Validation Errors" section.
+https://laravel.com/docs/9.x/validati...
+
+3) Update Header Statement:-
+Now add the below statement at the top of AdminController to include the Validator class for Laravel validation:-
+use Validator;
+
+Check now validation is working fine in the admin login form. The default error message will come for email and password but we can write custom error messages for email and password.
+
+4) Update login function :-
+For custom error messages, we will write validation logic in one array and custom error messages in another and then validate them as shown in the video.
+
+We will learn more about Laravel validations in future when we work on other forms. 
+
+
+                                     LECTURE 11
+-------------------------------------------------------------------------
+
+
+In Part-11 of the Laravel 9 Tutorial to create a Multi-Vendor E-commerce Website in Laravel, we will start working on admin settings in which we will add the functionality of updating admin password and details. 
+
+We will also update the left sidebar with the Settings tab under which we will add "Update Password" and "Update Details" tabs.
+
+In this video, we will create an "update password form" from where the admin can update the password of the admin panel.
+
+1) Create Route:- 
+First of all, create GET/POST route for update password page in web.php file like below:-
+
+// Update Admin Password
+Route::match(['get','post'],'update-admin-password','AdminController@updateAdminPassword');
+
+We will also keep this route in the admin middleware Route::group to protect it from unauthorized access.
+
+2) Create updateAdminPassword function:-
+Now we will create a updateAdminPassword function in AdminController that will return to the update_admin_password blade file that we will create under the settings folder that we will create at path /resources/views/admin/.
+
+3) Create update_admin_password.blade.php file:-
+Now we will create a update_admin_password.blade.php file in which we will copy the form design content from the Skydash template from path /template/pages/forms/basic_elements.html
+
+We will add Admin Email, Admin Type, current password, new password and confirm password fields.
+
+4) Update updateAdminPassword function :- 
+Now we will update updateAdminPassword function in AdminController to get the current admin details like email and type from Auth guard admin and return to update_admin_password.blade.php file.
+
+5) Include Admin Model :-
+Now we will include Admin model at top of the AdminController like below :-
+use App\Models\Admin;
+
+6) Update update_admin_password.blade.php file:-
+Now we will update update_admin_password page and will show email and type in update password form that we have got from updateAdminPassword function at AdminController from admin guard.
+
+7) Update dashboard.blade.php file :-
+Now we will also update the dashboard.blade.php file to show the admin name and type who logged in.
